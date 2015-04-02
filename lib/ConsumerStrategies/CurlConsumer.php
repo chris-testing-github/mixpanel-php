@@ -115,6 +115,7 @@ class ConsumerStrategies_CurlConsumer extends ConsumerStrategies_AbstractConsume
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
         $response = curl_exec($ch);
         if (false === $response) {
             $curl_error = curl_error($ch);
